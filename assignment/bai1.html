@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Counter() {
+            const [state, setState] = React.useState(0);
+            return <>
+                <div style={{
+                    color: state > 0 ? 'green' : state < 0 ? 'blue' : 'gray',
+                    width: '100px',
+                    height: '100px'
+                }}></div>
+                <p>{state > 0 ? 'duong' : state < 0 ? 'am' : 'bang 0'}</p>
+                <p>{state}</p>
+                <button onClick={() => setState(state + 1)}>increase</button>
+                <button onClick={() => setState(state - 1)}>decrease</button>
+                <button onClick={() => setState(0)}>reset</button>
+            </>
+        }
+
+        const app = (
+            <>
+                <Counter />
+            </>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(app);
+    </script>
+</body>
+
+</html>
